@@ -1,0 +1,4 @@
+greeting 05020002
+request 050100030b6578616d706c652e636f6d01bb
+partial incomplete
+decoded example.com 443 consumed 18
