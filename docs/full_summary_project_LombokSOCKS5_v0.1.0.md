@@ -1,42 +1,42 @@
-# Ringkasan Proyek LombokSOCKS5
+# Project Summary LombokSOCKS5
 
-## Apa ini
+## What it is
 
 Zero-dependency SOCKS5 message codec (RFC 1928 and RFC 1929): greeting, method selection, username/password auth, request, reply, and UDP datagram header, with incremental decoding. Part of the Lombok Ecosystem.
 
-## Mengapa dibuat
+## Why it exists
 
-Klien dan server proxy, alat pengujian jaringan, dan firmware membutuhkan pembacaan dan penulisan pesan SOCKS5 yang benar tanpa menyeret pustaka soket. Library ini hanya mengubah byte menjadi nilai dan sebaliknya, dengan hasil identik di setiap bahasa dan penguraian bertahap untuk aliran TCP.
+Proxy clients and servers, network test tools, and firmware need correct reading and writing of SOCKS5 messages without pulling in a socket library. This library only converts bytes to values and back, with identical results in every language and incremental parsing for TCP streams.
 
-## Fitur utama
+## Main features
 
-- Encode dan decode: greeting, pemilihan metode, otentikasi RFC 1929, request, reply, header UDP
-- Decode bertahap: ok, incomplete, atau error dengan kode
-- Alamat IPv4, IPv6, dan nama domain
-- Tanpa soket dan tanpa I/O
+- Encode and decode: greeting, method selection, RFC 1929 authentication, request, reply, UDP header
+- Incremental decode: ok, incomplete, or error with a code
+- IPv4, IPv6, and domain-name addresses
+- No sockets and no I/O
 
-## Status saat ini
+## Current status
 
-Versi 0.1.0, belum dirilis. TypeScript dan Python lulus 1030 kasus vector. Port lain belum ada.
+Version 0.1.0, not yet released. TypeScript and Python pass 1030 vector cases. No other ports exist.
 
-## Contoh pemakai
+## Example use cases
 
-- Server atau klien proxy dalam bahasa apa pun
-- Alat uji dan fuzz untuk implementasi proxy
-- Gateway tertanam yang menerjemahkan SOCKS5 ke jalur lain
-- Analisis lalu lintas: membaca tangkapan paket SOCKS5
+- A proxy server or client in any language
+- Test and fuzz tools for proxy implementations
+- An embedded gateway that translates SOCKS5 to another path
+- Traffic analysis: reading SOCKS5 packet captures
 
-## Batasan yang Diketahui
+## Known Limitations
 
-- Hanya codec; tidak ada mesin keadaan atau I/O.
-- Domain bukan UTF-8: dipetakan Latin-1; pemanggil mengonversi IDN ke punycode.
-- Fragmentasi UDP tidak dirakit.
-- Port Rust, Go, PHP BELUM.
+- Codec only; no state machine or I/O.
+- Domain names are not UTF-8: they are mapped as Latin-1; callers convert IDN to punycode.
+- UDP fragments are not reassembled.
+- Rust, Go and PHP ports: NOT YET.
 
-## Info lanjut
+## Further information
 
-SPEC: `SPEC_LombokSOCKS5_v0.1.0.md`; API: `API_LombokSOCKS5_v0.1.0.md`; panduan: `guide_how_to_use_LombokSOCKS5_v0.1.0.md`.
+SPEC: `SPEC_LombokSOCKS5_v0.1.0.md`; API: `API_LombokSOCKS5_v0.1.0.md`; guide: `guide_how_to_use_LombokSOCKS5_v0.1.0.md`.
 
-## Gap vs pembanding
+## Gap versus comparable libraries
 
-Pembanding: socks-proxy ekosistem Node, golang.org/x/net/internal/socks, PySocks, fast-socks5. Gap jujur: bukan klien/server lengkap; keunggulan: kontrak byte-identik lintas bahasa dan decode bertahap tanpa soket.
+Comparable: SOCKS packages in the Node ecosystem, golang.org/x/net/internal/socks, PySocks, fast-socks5. Honest gap: not a complete client/server; strengths: a byte-identical cross-language contract and incremental decoding without sockets.
