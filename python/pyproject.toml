@@ -7,6 +7,8 @@ name = "lomboksocks5"
 version = "0.1.0"
 description = "Zero-dependency SOCKS5 message codec (RFC 1928 and RFC 1929): greeting, method selection, username/password auth, request, reply, and UDP datagram header, with incremental decoding. Part of the Lombok Ecosystem."
 license = "Apache-2.0 OR MIT"
+readme = "README.md"
+license-files = ["LICENSE-APACHE", "LICENSE-MIT"]
 requires-python = ">=3.10"
 dependencies = []
 
